@@ -1,0 +1,36 @@
+<div class="contain-fluid mt-5 p-5">
+    <form [formGroup]="serchForm" (ngSubmit)="submitform()">
+        <div class="row">
+
+            <div class="mb-3 col-lg-10">
+                <input type="text" class="form-control" formControlName="movieName"  placeholder="Seach Movies Here.....">
+            </div>
+
+            <div class="col-lg-3">
+                <button class="btn btn-md">Serch</button>
+            </div>
+        </div>
+    </form>
+
+   <div class="row mt-5">
+      <div class="col-lg-4" *ngFor="let s of serachResult">
+        <div class="row">
+         <div class="col-lg-3 mt-3 mb-3" *ngIf="s.poster_path">
+            <img src="https://image.tmdb.org/t/p/original/{{s.backdrop_path}}"
+            [routerLink]="['/movies',s.id]"
+            >
+         </div>
+         <div class="col-lg-7 mt-4 mb-4">
+            <h5>{{s.original_title}}</h5>
+            <p>{{s.overview}}</p>
+         </div>
+        </div>
+      </div>
+   </div>
+
+
+
+
+</div>
+  
+
